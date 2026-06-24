@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Azra Zarreen — Software Engineer & Data Analyst</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#0a0a0a;
+  --bg2:#111111;
+  --bg3:#1a1a1a;
+  --bg4:#222222;
+  --text:#f0efe9;
+  --text2:#a0a0a0;
+  --text3:#555555;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.15);
+  --purple:#7B72E9;
+  --purple2:#9B93FF;
+  --purple-light:rgba(123,114,233,0.12);
+  --purple-text:#a39ef5;
+  --teal:#22C98A;
+  --teal-dark:#19a070;
+  --teal-light:rgba(34,201,138,0.1);
+  --grad:linear-gradient(135deg,#7B72E9,#22C98A);
+}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh;}
+a{color:inherit;text-decoration:none;}
+
+/* NOISE OVERLAY */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 2.5rem;border-bottom:0.5px solid var(--border);position:sticky;top:0;background:rgba(10,10,10,0.85);backdrop-filter:blur(20px);z-index:100;}
+.nav-logo{font-size:16px;font-weight:600;letter-spacing:-0.3px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-links{display:flex;gap:2rem;}
+.nav-links a{font-size:13px;color:var(--text2);letter-spacing:0.2px;transition:color 0.2s;}
+.nav-links a:hover{color:var(--text);}
+
+/* HERO */
+.hero{padding:6rem 2.5rem 5rem;border-bottom:0.5px solid var(--border);position:relative;overflow:hidden;}
+.hero-glow{position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(123,114,233,0.12) 0%,transparent 70%);pointer-events:none;}
+.hero-glow2{position:absolute;bottom:-150px;left:-50px;width:400px;height:400px;background:radial-gradient(circle,rgba(34,201,138,0.07) 0%,transparent 70%);pointer-events:none;}
+.hero-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:1.8rem;}
+.hero-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal);}
+.hero-eyebrow span{font-size:12px;color:var(--teal);font-weight:500;letter-spacing:0.8px;text-transform:uppercase;}
+.hero h1{font-size:58px;font-weight:600;line-height:1.03;letter-spacing:-2px;margin-bottom:1.8rem;}
+.hero h1 .grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-bio{font-size:15px;color:var(--text2);max-width:540px;line-height:1.8;margin-bottom:3rem;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.btn-p{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;padding:11px 24px;border-radius:999px;background:var(--grad);color:#fff;letter-spacing:0.2px;box-shadow:0 0 24px rgba(123,114,233,0.3);}
+.btn-p:hover{box-shadow:0 0 32px rgba(123,114,233,0.5);}
+.btn-s{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;padding:11px 20px;border-radius:999px;background:var(--bg3);color:var(--text2);border:0.5px solid var(--border2);transition:all 0.2s;}
+.btn-s:hover{color:var(--text);border-color:rgba(255,255,255,0.3);background:var(--bg4);}
+
+/* STATS */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:0.5px solid var(--border);}
+.stat-cell{padding:1.8rem 2.5rem;border-right:0.5px solid var(--border);position:relative;overflow:hidden;}
+.stat-cell:last-child{border-right:none;}
+.stat-cell::after{content:'';position:absolute;inset:0;background:var(--grad);opacity:0;transition:opacity 0.3s;}
+.stat-cell:hover::after{opacity:0.04;}
+.stat-num{font-size:36px;font-weight:600;letter-spacing:-1.5px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-label{font-size:12px;color:var(--text3);margin-top:4px;letter-spacing:0.3px;}
+
+/* SECTIONS */
+.sec{padding:3.5rem 2.5rem;border-bottom:0.5px solid var(--border);}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:2.5rem;}
+.sec-num{font-size:11px;color:var(--text3);font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:0.5px;}
+.sec-divider{flex:1;height:0.5px;background:var(--border);}
+.sec-title{font-size:11px;font-weight:600;letter-spacing:1.5px;color:var(--text3);text-transform:uppercase;}
+
+/* SKILLS */
+.skills-wrap{display:flex;flex-direction:column;gap:1.1rem;}
+.skill-row{display:flex;align-items:center;gap:16px;}
+.skill-label{font-size:13px;color:var(--text2);width:190px;flex-shrink:0;}
+.skill-bar-bg{flex:1;height:3px;background:var(--bg4);border-radius:2px;overflow:hidden;}
+.skill-bar{height:3px;border-radius:2px;background:var(--grad);}
+.skill-bar.teal{background:linear-gradient(90deg,var(--teal),#7B72E9);}
+.skill-pct{font-size:11px;color:var(--text3);width:32px;text-align:right;}
+.skill-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:2rem;}
+.pill{font-size:12px;padding:6px 14px;border-radius:999px;border:0.5px solid var(--border2);color:var(--text2);background:var(--bg2);}
+.pill.hi{background:var(--purple-light);color:var(--purple-text);border-color:rgba(123,114,233,0.3);}
+
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;}
+.tl-item{display:grid;grid-template-columns:150px 28px 1fr;gap:0 1rem;}
+.tl-meta{padding:0 0 2.5rem;text-align:right;}
+.tl-company{font-size:13px;font-weight:600;color:var(--text);}
+.tl-period{font-size:11px;color:var(--text3);margin-top:4px;letter-spacing:0.3px;}
+.tl-spine{display:flex;flex-direction:column;align-items:center;}
+.tl-dot{width:10px;height:10px;border-radius:50%;background:var(--purple);border:2px solid var(--bg);box-shadow:0 0 10px rgba(123,114,233,0.6);flex-shrink:0;margin-top:3px;}
+.tl-dot.teal{background:var(--teal);box-shadow:0 0 10px rgba(34,201,138,0.6);}
+.tl-line{flex:1;width:1px;background:var(--border);margin:5px 0;}
+.tl-item:last-child .tl-line{display:none;}
+.tl-body{padding:0 0 2.5rem;}
+.tl-role{font-size:15px;font-weight:500;margin-bottom:10px;color:var(--text);}
+.tl-points{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.tl-points li{font-size:13px;color:var(--text2);line-height:1.65;padding-left:16px;position:relative;}
+.tl-points li::before{content:"›";position:absolute;left:0;color:var(--purple);font-size:14px;line-height:1.5;}
+
+/* PROJECTS */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.proj-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:16px;padding:1.5rem;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;transition:border-color 0.3s,transform 0.2s;}
+.proj-card::before{content:'';position:absolute;inset:0;background:var(--grad);opacity:0;transition:opacity 0.3s;border-radius:16px;}
+.proj-card:hover{border-color:rgba(123,114,233,0.4);transform:translateY(-2px);}
+.proj-card:hover::before{opacity:0.04;}
+.proj-num{font-size:11px;color:var(--text3);font-weight:600;position:relative;}
+.proj-name{font-size:15px;font-weight:500;line-height:1.3;position:relative;}
+.proj-desc{font-size:13px;color:var(--text2);line-height:1.65;flex:1;position:relative;}
+.proj-stack{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;position:relative;}
+.proj-tag{font-size:11px;padding:4px 10px;border-radius:999px;background:var(--purple-light);color:var(--purple-text);border:0.5px solid rgba(123,114,233,0.2);}
+
+/* EDUCATION */
+.edu-list{display:flex;flex-direction:column;}
+.edu-row{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding:1.4rem 0;border-top:0.5px solid var(--border);}
+.edu-row:first-child{border-top:none;}
+.edu-deg{font-size:14px;font-weight:500;}
+.edu-school{font-size:12px;color:var(--text2);margin-top:4px;}
+.edu-badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;background:var(--teal-light);color:var(--teal);border:0.5px solid rgba(34,201,138,0.2);margin-top:6px;}
+.edu-year{font-size:12px;color:var(--text3);white-space:nowrap;padding-top:2px;}
+
+/* CERTS */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;}
+.cert-card{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:12px;background:var(--bg2);border:0.5px solid var(--border);transition:border-color 0.2s;}
+.cert-card:hover{border-color:var(--border2);}
+.cert-icon{width:38px;height:38px;border-radius:10px;background:var(--purple-light);border:0.5px solid rgba(123,114,233,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cert-icon i{font-size:18px;color:var(--purple2);}
+.cert-name{font-size:13px;font-weight:500;line-height:1.4;color:var(--text);}
+.cert-org{font-size:11px;color:var(--text3);margin-top:3px;}
+.cert-desc{font-size:12px;color:var(--text2);margin-top:6px;line-height:1.55;}
+
+/* CONTACT */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.contact-headline{font-size:36px;font-weight:600;letter-spacing:-1px;line-height:1.15;margin-bottom:1rem;}
+.contact-headline span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.contact-sub{font-size:14px;color:var(--text2);line-height:1.75;}
+.contact-links{display:flex;flex-direction:column;gap:10px;}
+.contact-link{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:12px;border:0.5px solid var(--border);color:var(--text);background:var(--bg2);transition:all 0.2s;}
+.contact-link:hover{border-color:rgba(123,114,233,0.4);background:var(--bg3);}
+.contact-link-icon{width:34px;height:34px;border-radius:8px;background:var(--purple-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-link-icon i{font-size:15px;color:var(--purple2);}
+.contact-link-text{font-size:13px;font-weight:500;}
+.contact-link-label{font-size:11px;color:var(--text3);margin-top:1px;}
+
+/* FOOTER */
+footer{padding:2rem 2.5rem;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.footer-text{font-size:12px;color:var(--text3);}
+.footer-grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:500;}
+
+@media(max-width:640px){
+  .hero h1{font-size:38px;}
+  .stat-row{grid-template-columns:1fr;}
+  .stat-cell{border-right:none;border-top:0.5px solid var(--border);padding:1.2rem 1.5rem;}
+  .stat-cell:first-child{border-top:none;}
+  .tl-item{grid-template-columns:90px 20px 1fr;}
+  .contact-wrap{grid-template-columns:1fr;}
+  nav{padding:1rem 1.5rem;}
+  .sec{padding:2.5rem 1.5rem;}
+  .hero{padding:4rem 1.5rem 3rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">AZ.</div>
+  <div class="nav-links">
+    <a href="#s-exp">experience</a>
+    <a href="#s-proj">projects</a>
+    <a href="#s-contact">contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-eyebrow"><div class="hero-dot"></div><span>Available for opportunities</span></div>
+  <h1>Azra Zarreen<br><span class="grad">Software Engineer</span><br>&amp; Data Analyst</h1>
+  <p class="hero-bio">A Computer Science &amp; Engineering student interested in Data Analytics and Software Development. I build data-driven solutions, analyze complex datasets, and create applications that solve real-world problems. Currently seeking opportunities to grow as a Data Analyst and contribute through data-backed decision-making.</p>
+  <div class="hero-actions">
+    <a class="btn-p" href="mailto:azrazarreen30@gmail.com"><i class="ti ti-mail"></i> Get in touch</a>
+    <a class="btn-s" href="https://www.linkedin.com/in/azra-zarreen-423419241/" target="_blank"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
+    <a class="btn-s" href="https://leetcode.com/u/azra-zarreen_43/" target="_blank"><i class="ti ti-code"></i> LeetCode</a>
+  </div>
+</section>
+
+<div class="stat-row">
+  <div class="stat-cell"><div class="stat-num">3+</div><div class="stat-label">Internships completed</div></div>
+  <div class="stat-cell"><div class="stat-num">78%</div><div class="stat-label">B.Tech aggregate</div></div>
+  <div class="stat-cell"><div class="stat-num">3</div><div class="stat-label">Certifications earned</div></div>
+</div>
+
+<section class="sec">
+  <div class="sec-head"><span class="sec-num">01</span><div class="sec-divider"></div><span class="sec-title">Skills</span></div>
+  <div class="skills-wrap">
+    <div class="skill-row"><span class="skill-label">Java</span><div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div><span class="skill-pct">85%</span></div>
+    <div class="skill-row"><span class="skill-label">Python (Pandas, NumPy)</span><div class="skill-bar-bg"><div class="skill-bar" style="width:82%"></div></div><span class="skill-pct">82%</span></div>
+    <div class="skill-row"><span class="skill-label">SQL / MongoDB</span><div class="skill-bar-bg"><div class="skill-bar teal" style="width:78%"></div></div><span class="skill-pct">78%</span></div>
+    <div class="skill-row"><span class="skill-label">Data Viz (Matplotlib)</span><div class="skill-bar-bg"><div class="skill-bar teal" style="width:74%"></div></div><span class="skill-pct">74%</span></div>
+    <div class="skill-row"><span class="skill-label">HTML / CSS / JS</span><div class="skill-bar-bg"><div class="skill-bar" style="width:70%"></div></div><span class="skill-pct">70%</span></div>
+  </div>
+  <div class="skill-pills">
+    <span class="pill hi">EDA</span><span class="pill hi">Git</span><span class="pill hi">Data Storytelling</span>
+    <span class="pill">Android Studio</span><span class="pill">Excel</span>
+    <span class="pill">Statistical Analysis</span><span class="pill">Problem Solving</span><span class="pill">Analytical Thinking</span>
+  </div>
+</section>
+
+<section class="sec" id="s-exp">
+  <div class="sec-head"><span class="sec-num">02</span><div class="sec-divider"></div><span class="sec-title">Experience</span></div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-meta"><div class="tl-company">Deloitte</div><div class="tl-period">2026</div></div>
+      <div class="tl-spine"><div class="tl-dot teal"></div><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <div class="tl-role">Data Analytics &amp; Insight Simulation</div>
+        <ul class="tl-points">
+          <li>Cleaned and preprocessed datasets using Pandas / NumPy</li>
+          <li>Conducted EDA to surface key trends and behavioural patterns</li>
+          <li>Communicated findings through Matplotlib and Seaborn visuals</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-meta"><div class="tl-company">Eduskills</div><div class="tl-period">Jan – Mar 2026</div></div>
+      <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <div class="tl-role">Java Full Stack Development Intern</div>
+        <ul class="tl-points">
+          <li>Architected full-stack web apps with Java backend and HTML/CSS/JS frontend</li>
+          <li>Built dynamic, responsive UIs integrated with Spring Boot APIs</li>
+          <li>Delivered scalable features following modern development practices</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-meta"><div class="tl-company">Eduskills</div><div class="tl-period">Jul – Sep 2024</div></div>
+      <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <div class="tl-role">Android Development Intern</div>
+        <ul class="tl-points">
+          <li>Developed and shipped Android apps in Kotlin and Java</li>
+          <li>Designed responsive XML layouts focused on usability</li>
+          <li>Managed codebase versioning with Git in Android Studio</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="s-proj">
+  <div class="sec-head"><span class="sec-num">03</span><div class="sec-divider"></div><span class="sec-title">Projects</span></div>
+  <div class="proj-grid">
+    <div class="proj-card">
+      <div class="proj-num">01</div>
+      <div class="proj-name">Data Analytics Simulation</div>
+      <div class="proj-desc">End-to-end data analysis pipeline for Deloitte — cleaning, EDA, and visualisation to surface actionable business insights.</div>
+      <div class="proj-stack"><span class="proj-tag">Python</span><span class="proj-tag">Pandas</span><span class="proj-tag">Matplotlib</span><span class="proj-tag">Seaborn</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-num">02</div>
+      <div class="proj-name">Android Application</div>
+      <div class="proj-desc">A mobile app built during the Eduskills internship, focusing on intuitive navigation and clean, production-ready architecture.</div>
+      <div class="proj-stack"><span class="proj-tag">Kotlin</span><span class="proj-tag">Java</span><span class="proj-tag">XML</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-num">03</div>
+      <div class="proj-name">Full Stack Web App</div>
+      <div class="proj-desc">Spring Boot backend integrated with a responsive frontend — scalable, well-structured, and built to production standards.</div>
+      <div class="proj-stack"><span class="proj-tag">Java</span><span class="proj-tag">Spring Boot</span><span class="proj-tag">HTML/CSS</span><span class="proj-tag">JS</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-head"><span class="sec-num">04</span><div class="sec-divider"></div><span class="sec-title">Education</span></div>
+  <div class="edu-list">
+    <div class="edu-row">
+      <div>
+        <div class="edu-deg">B.Tech — Computer Science &amp; Engineering</div>
+        <div class="edu-school">Axis Institute of Technology &amp; Management, Kanpur (AKTU)</div>
+        <div><span class="edu-badge">78.19% aggregate</span></div>
+      </div>
+      <div class="edu-year">2023 – 2027</div>
+    </div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-deg">Class XII — C.B.S.E</div>
+        <div class="edu-school">Maharishi Vidya Mandir, Fatehpur</div>
+        <div><span class="edu-badge">78.8%</span></div>
+      </div>
+      <div class="edu-year">2022</div>
+    </div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-deg">Class X — C.B.S.E</div>
+        <div class="edu-school">Maharishi Vidya Mandir, Fatehpur</div>
+        <div><span class="edu-badge">85.8%</span></div>
+      </div>
+      <div class="edu-year">2020</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-head"><span class="sec-num">05</span><div class="sec-divider"></div><span class="sec-title">Certifications</span></div>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-icon"><i class="ti ti-database"></i></div>
+      <div><div class="cert-name">Introduction to MongoDB</div><div class="cert-org">MongoDB · 2025</div></div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon"><i class="ti ti-chart-dots"></i></div>
+      <div><div class="cert-name">Data Analytics Job Simulation</div><div class="cert-org">Deloitte · Forage, 2026</div></div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon"><i class="ti ti-brain"></i></div>
+      <div>
+        <div class="cert-name">Gen AI Powered Data Analytics Job Simulation</div>
+        <div class="cert-org">TATA · Forage, 2026</div>
+        <div class="cert-desc">EDA, risk profiling, delinquency prediction with AI, business reporting &amp; AI-driven collection strategies.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="s-contact">
+  <div class="sec-head"><span class="sec-num">06</span><div class="sec-divider"></div><span class="sec-title">Contact</span></div>
+  <div class="contact-wrap">
+    <div>
+      <div class="contact-headline">Let's work<br><span>together.</span></div>
+      <p class="contact-sub">Open to internships, entry-level roles, and collaborative projects. Don't hesitate to reach out.</p>
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:azrazarreen30@gmail.com">
+        <div class="contact-link-icon"><i class="ti ti-mail"></i></div>
+        <div><div class="contact-link-text">azrazarreen30@gmail.com</div><div class="contact-link-label">Email</div></div>
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/azra-zarreen-423419241/" target="_blank">
+        <div class="contact-link-icon"><i class="ti ti-brand-linkedin"></i></div>
+        <div><div class="contact-link-text">azra-zarreen-423419241</div><div class="contact-link-label">LinkedIn</div></div>
+      </a>
+      <a class="contact-link" href="https://leetcode.com/u/azra-zarreen_43/" target="_blank">
+        <div class="contact-link-icon"><i class="ti ti-code"></i></div>
+        <div><div class="contact-link-text">azra_zarreen-43</div><div class="contact-link-label">LeetCode</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-text">© 2026 <span class="footer-grad">Azra Zarreen</span></span>
+  <span class="footer-text">Software Engineer &amp; Data Analyst</span>
+</footer>
+
+</body>
+</html>
